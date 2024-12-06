@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 28
-  productGUID: 621b92185eccbe741b6324dd16ee6533
+  productGUID: 707bfec1a266e1a4ea2ff104d736cd82
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -687,10 +687,10 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: d5db51f3-8412-4cea-abc1-6ae08dd99f8e
+  cloudProjectId: ffa52a07-67a3-40dc-9487-72009bf08ffe
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Bouncy Miner
+  projectName: Bouncy Miner 2024-12-06_17-38-50
   organizationId: nickharuchan
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
