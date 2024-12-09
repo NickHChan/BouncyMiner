@@ -16,7 +16,18 @@ public class Spawner : MonoBehaviour
         {
             foreach (int xCoord in xCoords)
             {
-                int ranNum = Random.Range(0, spawners.Length);
+                int ranNum = Random.Range(0, 101);
+                int index;
+                switch (ranNum)
+                {
+                    ranNum > 0 && ranNum <= 33  => 0;
+                        break;
+                    ranNum > 34 && ranNum <= 66  => 1;
+                    break;
+                    ranNum > 67 => 2;
+                        break;
+                }
+
                 Instantiate(spawners[ranNum], new Vector3(xCoord, transform.position.y - yCoord, transform.position.z), Quaternion.identity);
             }
         }
