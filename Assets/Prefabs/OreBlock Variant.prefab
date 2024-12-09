@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OreBlock Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2869204699978444128, guid: 2cff63ae5654148499211204e28f1d86, type: 3}
+      propertyPath: m_TagString
+      value: Ore
+      objectReference: {fileID: 0}
     - target: {fileID: 4316187807807890496, guid: 2cff63ae5654148499211204e28f1d86, type: 3}
       propertyPath: m_Color.b
       value: 0.7532034
