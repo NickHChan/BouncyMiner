@@ -2,7 +2,7 @@ using UnityEngine;
 using random = UnityEngine.Random;
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private GameObject[] spawners;
+    [SerializeField] public GameObject[] spawners;
     void Start()
     {
         Spawn();
@@ -17,21 +17,31 @@ public class Spawner : MonoBehaviour
             foreach (int xCoord in xCoords)
             {
                 int ranNum = Random.Range(0, 101);
-                int index;
-                switch (ranNum)
-                {
-                    ranNum > 0 && ranNum <= 33  => 0;
-                        break;
-                    ranNum > 34 && ranNum <= 66  => 1;
-                    break;
-                    ranNum > 67 => 2;
-                        break;
-                }
+                int index = SetIndexWithGivenNumber(ranNum);
 
-                Instantiate(spawners[ranNum], new Vector3(xCoord, transform.position.y - yCoord, transform.position.z), Quaternion.identity);
+                Instantiate(spawners[index], new Vector3(xCoord, transform.position.y - yCoord, transform.position.z), Quaternion.identity);
             }
         }
+        
+    }
 
-
+    public int SetIndexWithGivenNumber(int number)
+    {
+        if (number is > 0 and <= 85)
+        {
+            return 0;
+        } 
+        else if (number is > 85 and <= 95)
+        {
+            return 1;
+        }
+        else if (number > 95)
+        {
+            return 2;
+        }
+        else
+        {
+            return -1;
+        }
     }
 }
