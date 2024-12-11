@@ -1,12 +1,13 @@
 using System;
 using PlayerStatus;
+using TMPro;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
     private static PlayerModes PlayerMode = PlayerModes.Mining;
     private static int PlayerHealth = 3;
-    private static float PlayerScore = 0;
+    private static float PlayerScore;
     private SpriteRenderer PlayerSprite;
 
     [SerializeField] private float TorqueAmount = 3f;
@@ -19,14 +20,13 @@ public class Player : MonoBehaviour
      PlayerSprite.color = Color.blue;
      Debug.Log("To Changes Modes use 1:Mining 2: Attacking 3: Defending");
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         ChangePlayerMode();
     }
 
-	private void ChangePlayerMode()
+    private void ChangePlayerMode()
 	{
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -69,7 +69,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public static void PlayerTakesDamage()
+    private static void PlayerTakesDamage()
     {
         if (PlayerHealth > 0)
         {
@@ -86,4 +86,16 @@ public class Player : MonoBehaviour
     {
         PlayerScore += score;
     }
+
+    public static float PlayerScoreValue()
+    {
+        return PlayerScore;
+    }
+
+    public static void ResetPlayerScore()
+    {
+        PlayerScore = 0;
+    }
+
+
 }

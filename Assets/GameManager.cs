@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -10,9 +11,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject beginningContainer;
     [SerializeField] private int distanceBeforeNextSpawn;
+    [SerializeField] private TextMeshProUGUI displayPlayerScore;
     private int _currentPlayerLocation;
     private int _previousPlayerLocation;
     private int _nextContainerYLocation;
+    private int _spawnedContainers = 0;
     
     void Start()
     {
@@ -25,6 +28,13 @@ public class GameManager : MonoBehaviour
     {
         _currentPlayerLocation = Mathf.RoundToInt(player.transform.position.y);
         SpawnNextRow();
+        SetPlayerScore();
+        RemovePassedContainers();
+    }
+
+    private void OnApplicationQuit()
+    {
+        Player.ResetPlayerScore();
     }
 
     private void SpawnFirstRow()
@@ -44,7 +54,22 @@ public class GameManager : MonoBehaviour
             _previousPlayerLocation = _currentPlayerLocation;
             _nextContainerYLocation -= 5;
             Instantiate(containerpreFab, new Vector3( transform.position.x, _nextContainerYLocation, transform.position.z), Quaternion.identity, arena);
-            
+            _spawnedContainers += 1;
+
+        }
+    }
+    
+    private void SetPlayerScore()
+    {
+        displayPlayerScore.text = Mathf.RoundToInt(Player.PlayerScoreValue()).ToString();
+    }
+
+    private void RemovePassedContainers()
+    {
+        if (_spawnedContainers > 3)
+        {
+            Destroy(arena.GetChild(0).gameObject);
+            _spawnedContainers = 0;
         }
     }
 
