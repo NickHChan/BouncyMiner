@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
     private void OnApplicationQuit()
     {
         Player.ResetPlayerScore();
+        Player.ResetPlayerHealth();
     }
 
     private void SpawnFirstRow()

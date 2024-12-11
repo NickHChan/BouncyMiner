@@ -26,7 +26,8 @@ public class Player : MonoBehaviour
     {
         ChangePlayerMode();
     }
-
+    
+    //TODO: Add Attack Dmg(for Mining and Attack) and HP(for Attack and Defend)
     private void ChangePlayerMode()
 	{
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -46,6 +47,7 @@ public class Player : MonoBehaviour
         }
     }
 
+    //TODO: rest of logic like Defending an Ore doesn't lose health.
     private void OnCollisionEnter2D(Collision2D other)
     {
         rb.AddTorque(TorqueAmount);
@@ -101,6 +103,10 @@ public class Player : MonoBehaviour
     public static void ResetPlayerScore()
     {
         PlayerScore = 0;
+    }
+    public static void ResetPlayerHealth()
+    {
+        PlayerHealth = 3;
     }
     
     
