@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     private static PlayerModes PlayerMode = PlayerModes.Mining;
     private static int PlayerHealth = 3;
     private static float PlayerScore;
+    [SerializeField] private Transform playerHealth;
     private SpriteRenderer PlayerSprite;
 
     [SerializeField] private float TorqueAmount = 3f;
@@ -66,6 +67,11 @@ public class Player : MonoBehaviour
         else
         {
             PlayerTakesDamage();
+            if (PlayerHealth > 0)
+            {
+                DestroyAHeart();
+            }
+
         }
     }
 
@@ -96,6 +102,13 @@ public class Player : MonoBehaviour
     {
         PlayerScore = 0;
     }
+    
+    
+    private void DestroyAHeart()
+    {
+        Destroy(playerHealth.GetChild(0).gameObject);
+    }
+
 
 
 }
