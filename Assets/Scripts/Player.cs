@@ -7,14 +7,16 @@ public class Player : MonoBehaviour
     private static PlayerModes PlayerMode = PlayerModes.Mining;
     private static int PlayerHealth = 3;
     private static float PlayerScore = 0;
+    private SpriteRenderer PlayerSprite;
 
     [SerializeField] private float TorqueAmount = 3f;
 
     private Rigidbody2D rb;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-     rb = GetComponent<Rigidbody2D>();   
+     rb = GetComponent<Rigidbody2D>();
+     PlayerSprite = GetComponentInChildren<SpriteRenderer>();
+     PlayerSprite.color = Color.blue;
      Debug.Log("To Changes Modes use 1:Mining 2: Attacking 3: Defending");
     }
 
@@ -29,21 +31,42 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             PlayerMode = PlayerModes.Mining;
+            PlayerSprite.color = Color.blue;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             PlayerMode = PlayerModes.Attacking;
+            PlayerSprite.color = Color.red;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             PlayerMode = PlayerModes.Defending;
+            PlayerSprite.color = Color.green;
         }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
         rb.AddTorque(TorqueAmount);
-        Debug.Log(other.gameObject.tag);
+        if (other.gameObject.CompareTag("Ore") && PlayerMode == PlayerModes.Mining)
+        {
+            Destroy(other.gameObject); 
+            PlayerGainsScore(100);
+        }
+        else if (other.gameObject.CompareTag("Enemy") && PlayerMode == PlayerModes.Attacking)
+        {
+            Destroy(other.gameObject);
+            PlayerGainsScore(100);
+        }
+        else if (other.gameObject.CompareTag("Trap") && PlayerMode == PlayerModes.Defending)
+        {
+            Destroy(other.gameObject);
+            PlayerGainsScore(100);
+        }
+        else
+        {
+            PlayerTakesDamage();
+        }
     }
 
     public static void PlayerTakesDamage()
