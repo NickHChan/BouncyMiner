@@ -1,3 +1,5 @@
+using System;
+using TMPro;
 using UnityEngine;
 
 public struct Tool
@@ -14,9 +16,20 @@ public struct Tool
 
 public class Tools : MonoBehaviour
 {
+    [SerializeField] private TextMeshProUGUI pickaxeText;
+    [SerializeField] private TextMeshProUGUI swordText;
+    [SerializeField] private TextMeshProUGUI shieldText;
+    //TODO: fix bug with tool's values not changing when it should reduced;
     public static Tool Pickaxe = new Tool(3, 1);
-    public static Tool Sword = new Tool(3, 1);
-    public static Tool Shield = new Tool(3, 0);
+    public static Tool Sword = new (3, 1);
+    public static Tool Shield = new (3, 0);
+
+    private void Update()
+    {
+        pickaxeText.text = $"Durability: {Pickaxe.Durability} Damage: {Pickaxe.Damage}";
+        swordText.text = $"Durability: {Sword.Durability} Damage: {Sword.Damage}";
+        shieldText.text = $"Durability: {Shield.Durability} Damage: {Shield.Damage}";
+    }
 
     public static void ResetToolDurability(Tool tool)
     {
@@ -35,6 +48,6 @@ public class Tools : MonoBehaviour
 
     public static void ReduceToolDurability(Tool tool)
     {
-        tool.Durability--;
+        tool.Durability -= 1;
     }
 }
