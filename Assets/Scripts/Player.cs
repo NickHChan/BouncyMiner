@@ -30,7 +30,6 @@ public class Player : MonoBehaviour
         CheckPlayerBrokeTool();
     }
     
-    //TODO: Add Attack Dmg(for Mining and Attack) and HP(for Attack and Defend)
     private void ChangePlayerMode()
 	{
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -49,8 +48,7 @@ public class Player : MonoBehaviour
             PlayerSprite.color = Color.green;
         }
     }
-
-    //TODO: rest of logic like Defending an Ore doesn't lose health.
+    //TODO: when velocity is at 0 for 4 seconds destroy all touching the gameObject
     private void OnCollisionEnter2D(Collision2D other)
     {
         rb.AddTorque(TorqueAmount);
