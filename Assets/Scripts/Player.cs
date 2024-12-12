@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     private static float PlayerScore;
     [SerializeField] private Transform playerHealth;
     private SpriteRenderer PlayerSprite;
+    public static bool PlayerBrokeATool = false;
 
     [SerializeField] private float TorqueAmount = 3f;
 
@@ -26,7 +27,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         ChangePlayerMode();
-        Debug.Log(PlayerMode);
+        CheckPlayerBrokeTool();
     }
     
     //TODO: Add Attack Dmg(for Mining and Attack) and HP(for Attack and Defend)
@@ -37,12 +38,12 @@ public class Player : MonoBehaviour
             PlayerMode = PlayerModes.Mining;
             PlayerSprite.color = Color.blue;
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2) && Tools.Sword.Durability > 0)
+        else if (Input.GetKeyDown(KeyCode.Alpha2) && Tools.Sword["Durability"] > 0)
         {
             PlayerMode = PlayerModes.Attacking;
             PlayerSprite.color = Color.red;
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha3) && Tools.Shield.Durability > 0)
+        else if (Input.GetKeyDown(KeyCode.Alpha3) && Tools.Shield["Durability"] > 0)
         {
             PlayerMode = PlayerModes.Defending;
             PlayerSprite.color = Color.green;
@@ -85,7 +86,7 @@ public class Player : MonoBehaviour
                 other.gameObject.CompareTag("Trap") && PlayerMode == PlayerModes.Attacking)
         {
             PlayerTakesDamage();
-            if (PlayerHealth > 0)
+            if (PlayerHealth >= 0)
             {
                 DestroyAHeart();
             }
@@ -129,6 +130,18 @@ public class Player : MonoBehaviour
     private void DestroyAHeart()
     {
         Destroy(playerHealth.GetChild(0).gameObject);
+    }
+
+    public void CheckPlayerBrokeTool()
+    {
+        if (PlayerBrokeATool)
+        {
+            PlayerMode = PlayerModes.Mining;
+            PlayerSprite.color = Color.blue;
+        }
+
+        PlayerBrokeATool = false;
+
     }
 
 

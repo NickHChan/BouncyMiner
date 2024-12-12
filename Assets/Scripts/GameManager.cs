@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
     {
         Player.ResetPlayerScore();
         Player.ResetPlayerHealth();
+        Tools.ResetToolDurability();
     }
 
     private void SpawnFirstRow()
