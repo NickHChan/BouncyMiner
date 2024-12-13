@@ -5,22 +5,22 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private static PlayerModes PlayerMode;
-    private static int PlayerHealth = 3;
-    private static float PlayerScore;
+    private static PlayerModes _playerMode;
+    private static int _playerHealth = 3;
+    private static float _playerScore;
     [SerializeField] private Transform playerHealth;
-    private SpriteRenderer PlayerSprite;
+    private SpriteRenderer _playerSprite;
     public static bool PlayerBrokeATool = false;
 
-    [SerializeField] private float TorqueAmount = 3f;
+    [SerializeField] private float torqueAmount = 3f;
 
-    private Rigidbody2D rb;
+    private Rigidbody2D _rb;
     void Start()
     {
-     rb = GetComponent<Rigidbody2D>();
-     PlayerMode = PlayerModes.Mining;
-     PlayerSprite = GetComponentInChildren<SpriteRenderer>();
-     PlayerSprite.color = Color.blue;
+     _rb = GetComponent<Rigidbody2D>();
+     _playerMode = PlayerModes.Mining;
+     _playerSprite = GetComponentInChildren<SpriteRenderer>();
+     _playerSprite.color = Color.blue;
      Debug.Log("To Changes Modes use 1:Mining 2: Attacking 3: Defending");
     }
     
@@ -34,94 +34,94 @@ public class Player : MonoBehaviour
 	{
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            PlayerMode = PlayerModes.Mining;
-            PlayerSprite.color = Color.blue;
+            _playerMode = PlayerModes.Mining;
+            _playerSprite.color = Color.blue;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2) && Tools.Sword["Durability"] > 0)
         {
-            PlayerMode = PlayerModes.Attacking;
-            PlayerSprite.color = Color.red;
+            _playerMode = PlayerModes.Attacking;
+            _playerSprite.color = Color.red;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3) && Tools.Shield["Durability"] > 0)
         {
-            PlayerMode = PlayerModes.Defending;
-            PlayerSprite.color = Color.green;
+            _playerMode = PlayerModes.Defending;
+            _playerSprite.color = Color.green;
         }
     }
-    //TODO: when velocity is at 0 for 4 seconds destroy all touching the gameObject
     private void OnCollisionEnter2D(Collision2D other)
     {
-        rb.AddTorque(TorqueAmount);
-        if (other.gameObject.CompareTag("Ore") && PlayerMode == PlayerModes.Mining)
+        _rb.AddTorque(torqueAmount);
+        if (other.gameObject.CompareTag("Ore") && _playerMode == PlayerModes.Mining)
         {
             Destroy(other.gameObject); 
             PlayerGainsScore(100);
         }
-        else if (other.gameObject.CompareTag("Ore") && PlayerMode == PlayerModes.Attacking)
+        else if (other.gameObject.CompareTag("Ore") && _playerMode == PlayerModes.Attacking)
         {
             Tools.ReduceToolDurability(Tools.Sword);
         }
-        else if (other.gameObject.CompareTag("Ore") && PlayerMode == PlayerModes.Defending)
+        else if (other.gameObject.CompareTag("Ore") && _playerMode == PlayerModes.Defending)
         {
             Tools.ReduceToolDurability(Tools.Shield);
         }
-        else if (other.gameObject.CompareTag("Enemy") && PlayerMode == PlayerModes.Attacking)
+        else if (other.gameObject.CompareTag("Enemy") && _playerMode == PlayerModes.Attacking)
         {
             Destroy(other.gameObject);
             PlayerGainsScore(100);
         }
-        else if (other.gameObject.CompareTag("Enemy") && PlayerMode == PlayerModes.Defending)
+        else if (other.gameObject.CompareTag("Enemy") && _playerMode == PlayerModes.Defending)
         {
             Tools.ReduceToolDurability(Tools.Shield);
         }
-        else if (other.gameObject.CompareTag("Trap") && PlayerMode == PlayerModes.Defending)
+        else if (other.gameObject.CompareTag("Trap") && _playerMode == PlayerModes.Defending)
         {
             Destroy(other.gameObject);
             PlayerGainsScore(100);
         }
-        else if(other.gameObject.CompareTag("Enemy") && PlayerMode == PlayerModes.Mining || 
-                other.gameObject.CompareTag("Trap") && PlayerMode == PlayerModes.Mining ||
-                other.gameObject.CompareTag("Trap") && PlayerMode == PlayerModes.Attacking)
+        else if(other.gameObject.CompareTag("Enemy") && _playerMode == PlayerModes.Mining || 
+                other.gameObject.CompareTag("Trap") && _playerMode == PlayerModes.Mining ||
+                other.gameObject.CompareTag("Trap") && _playerMode == PlayerModes.Attacking)
         {
             PlayerTakesDamage();
-            if (PlayerHealth >= 0)
+            if (_playerHealth >= 0)
             {
                 DestroyAHeart();
             }
 
         }
     }
+    
 
     private static void PlayerTakesDamage()
     {
-        if (PlayerHealth > 0)
+        if (_playerHealth > 0)
         {
-            PlayerHealth--;
+            _playerHealth--;
         }
     }
 
     public static void PlayerGainsHealth()
     {
-        PlayerHealth++;
+        _playerHealth++;
     }
 
     public static void PlayerGainsScore(float score)
     {
-        PlayerScore += score;
+        _playerScore += score;
     }
 
     public static float PlayerScoreValue()
     {
-        return PlayerScore;
+        return _playerScore;
     }
 
     public static void ResetPlayerScore()
     {
-        PlayerScore = 0;
+        _playerScore = 0;
     }
     public static void ResetPlayerHealth()
     {
-        PlayerHealth = 3;
+        _playerHealth = 3;
     }
     
     
@@ -134,8 +134,8 @@ public class Player : MonoBehaviour
     {
         if (PlayerBrokeATool)
         {
-            PlayerMode = PlayerModes.Mining;
-            PlayerSprite.color = Color.blue;
+            _playerMode = PlayerModes.Mining;
+            _playerSprite.color = Color.blue;
         }
 
         PlayerBrokeATool = false;
