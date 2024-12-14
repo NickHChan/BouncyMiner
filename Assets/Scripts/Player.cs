@@ -1,6 +1,5 @@
 using System;
 using PlayerStatus;
-using TMPro;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -55,7 +54,6 @@ public class Player : MonoBehaviour
         _rb.AddTorque(torqueAmount);
         if (other.gameObject.CompareTag("Ore") && _playerMode == PlayerModes.Mining)
         {
-            Destroy(other.gameObject); 
             PlayerGainsScore(100);
         }
         else if (other.gameObject.CompareTag("Ore") && _playerMode == PlayerModes.Attacking)
