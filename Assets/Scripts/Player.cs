@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform playerHealth;
     private SpriteRenderer _playerSprite;
     public static bool PlayerBrokeATool = false;
+    [SerializeField] private GameObject gameoverScreen;
 
     [SerializeField] private float torqueAmount = 3f;
 
@@ -28,6 +29,7 @@ public class Player : MonoBehaviour
     {
         ChangePlayerMode();
         CheckPlayerBrokeTool();
+        CheckIfPlayerIsDead();
     }
     
     private void ChangePlayerMode()
@@ -100,6 +102,15 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void CheckIfPlayerIsDead()
+    {
+        if (_playerHealth <= 0)
+        {
+            Time.timeScale = 0;
+            gameoverScreen.SetActive(true);
+        }
+    }
+
     public static void PlayerGainsHealth()
     {
         _playerHealth++;
@@ -123,8 +134,7 @@ public class Player : MonoBehaviour
     {
         _playerHealth = 3;
     }
-    
-    
+
     private void DestroyAHeart()
     {
         Destroy(playerHealth.GetChild(0).gameObject);
@@ -141,6 +151,7 @@ public class Player : MonoBehaviour
         PlayerBrokeATool = false;
 
     }
+
 
 
 
