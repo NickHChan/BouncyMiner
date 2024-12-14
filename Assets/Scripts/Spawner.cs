@@ -19,6 +19,8 @@ public class Spawner : MonoBehaviour
             {
                 int ranNum = Random.Range(0, 101);
                 int index = SetIndexWithGivenNumber(ranNum);
+                
+                
 
                 Instantiate(spawners[index], new Vector3(xCoord, transform.position.y - yCoord, transform.position.z), Quaternion.identity, spawnersParent);
             }
