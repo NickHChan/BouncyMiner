@@ -1,6 +1,7 @@
 using System;
 using PlayerStatus;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -11,16 +12,19 @@ public class Player : MonoBehaviour
     private SpriteRenderer _playerSprite;
     public static bool PlayerBrokeATool = false;
     [SerializeField] private GameObject gameoverScreen;
-
+    [SerializeField] private Sprite swordImage;
     [SerializeField] private float torqueAmount = 3f;
+    
 
     private Rigidbody2D _rb;
+    private SpriteRenderer _sprite;
     void Start()
     {
      _rb = GetComponent<Rigidbody2D>();
      _playerMode = PlayerModes.Mining;
      _playerSprite = GetComponentInChildren<SpriteRenderer>();
      _playerSprite.color = Color.blue;
+     _sprite = GetComponentInChildren<SpriteRenderer>();
      Debug.Log("To Changes Modes use 1:Mining 2: Attacking 3: Defending");
     }
     
@@ -41,7 +45,7 @@ public class Player : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Alpha2) && Tools.Sword["Durability"] > 0)
         {
             _playerMode = PlayerModes.Attacking;
-            _playerSprite.color = Color.red;
+            _sprite.sprite = swordImage;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3) && Tools.Shield["Durability"] > 0)
         {
