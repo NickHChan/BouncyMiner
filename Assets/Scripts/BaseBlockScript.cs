@@ -27,7 +27,7 @@ public class BaseBlockScript : MonoBehaviour
         }
     }
 
-    public void SetBlockHealth(int health)
+    public void AddBlockHealth(int health)
     {
         _blockHealth += health;
     }
