@@ -16,9 +16,19 @@ public class BaseBlockScript : MonoBehaviour
 
     private void Update()
     {
+        CheckIfBlockIsAlive();
+    }
+
+    private void CheckIfBlockIsAlive()
+    {
         if (_blockHealth <= 0)
         {
             Destroy(gameObject);
         }
+    }
+
+    public void SetBlockHealth(int health)
+    {
+        _blockHealth += health;
     }
 }
