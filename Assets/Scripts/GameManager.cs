@@ -85,7 +85,12 @@ public class GameManager : MonoBehaviour
         {
             _previousPlayerDistanceTraveled = _currentPlayerLocation;
             Debug.Log("Advanced");
-            FindAnyObjectByType<BaseBlockScript>().SetBlockHealth(3);
+            BaseBlockScript[] array = FindObjectsByType<BaseBlockScript>(FindObjectsSortMode.None);
+            foreach (var block in array)
+            {
+                block.SetBlockHealth(3);
+            }
+
         }
     }
 

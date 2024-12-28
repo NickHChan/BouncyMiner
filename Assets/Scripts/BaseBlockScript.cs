@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BaseBlockScript : MonoBehaviour
 {
-    private int _blockHealth = 1;
+    [SerializeField] private int _blockHealth = 1;
 
     private void OnCollisionEnter2D(Collision2D other)
     {
