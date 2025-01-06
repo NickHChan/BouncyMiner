@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
     {
         ChangePlayerMode();
         CheckPlayerBrokeTool();
-        CheckIfPlayerIsDead();
+        //CheckIfPlayerIsDead();
     }
     
     private void ChangePlayerMode()
@@ -40,7 +40,6 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             _playerMode = PlayerModes.Mining;
-            _playerSprite.color = Color.blue;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2) && Tools.Sword["Durability"] > 0)
         {

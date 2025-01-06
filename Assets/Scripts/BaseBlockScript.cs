@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BaseBlockScript : MonoBehaviour
 {
-    private int _blockHealth = 1;
+    [SerializeField] private int _blockHealth = 1;
 
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -16,9 +16,19 @@ public class BaseBlockScript : MonoBehaviour
 
     private void Update()
     {
+        CheckIfBlockIsAlive();
+    }
+
+    private void CheckIfBlockIsAlive()
+    {
         if (_blockHealth <= 0)
         {
             Destroy(gameObject);
         }
+    }
+
+    public void AddBlockHealth(int health)
+    {
+        _blockHealth += health;
     }
 }

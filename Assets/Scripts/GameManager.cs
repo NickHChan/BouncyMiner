@@ -12,14 +12,17 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject beginningContainer;
     [SerializeField] private int distanceBeforeNextSpawn;
     [SerializeField] private TextMeshProUGUI displayPlayerScore;
+    [SerializeField] private int distanceBeforeNextLevel = 10;
     private int _currentPlayerLocation;
     private int _previousPlayerLocation;
+    private int _previousPlayerDistanceTraveled;
     private int _nextContainerYLocation;
     private int _spawnedContainers = 0;
     
     void Start()
     {
         _previousPlayerLocation = Mathf.RoundToInt(player.transform.position.y);
+        _previousPlayerDistanceTraveled = Mathf.RoundToInt(player.transform.position.y);
         _nextContainerYLocation = Mathf.RoundToInt(beginningContainer.transform.position.y);
         SpawnFirstRow();
     }
@@ -27,6 +30,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         _currentPlayerLocation = Mathf.RoundToInt(player.transform.position.y);
+        CheckAndAdvanceToNextStage();
         SpawnNextRow();
         SetPlayerScore();
         RemovePassedContainers();
@@ -72,6 +76,20 @@ public class GameManager : MonoBehaviour
         {
             Destroy(arena.GetChild(0).gameObject);
             _spawnedContainers = 0;
+        }
+    }
+
+    private void CheckAndAdvanceToNextStage()
+    {
+        if (_previousPlayerDistanceTraveled - _currentPlayerLocation >= distanceBeforeNextLevel)
+        {
+            _previousPlayerDistanceTraveled = _currentPlayerLocation;
+            var arrayOfBlocks = FindObjectsByType<BaseBlockScript>(FindObjectsSortMode.None);
+            foreach (var block in arrayOfBlocks)
+            {
+                block.AddBlockHealth(1);
+            }
+
         }
     }
 
