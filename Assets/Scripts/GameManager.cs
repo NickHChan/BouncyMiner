@@ -84,6 +84,7 @@ public class GameManager : MonoBehaviour
         if (_previousPlayerDistanceTraveled - _currentPlayerLocation >= distanceBeforeNextLevel)
         {
             _previousPlayerDistanceTraveled = _currentPlayerLocation;
+            Debug.Log("Difficulty Increased");
             var arrayOfBlocks = FindObjectsByType<BaseBlockScript>(FindObjectsSortMode.None);
             foreach (var block in arrayOfBlocks)
             {
