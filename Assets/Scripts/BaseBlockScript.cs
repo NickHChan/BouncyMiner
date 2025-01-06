@@ -1,6 +1,7 @@
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class BaseBlockScript : MonoBehaviour
 {
@@ -25,7 +26,12 @@ public class BaseBlockScript : MonoBehaviour
         if (_blockHealth <= 0)
         {
             Destroy(gameObject);
-            CreatePowerUp();
+            int ranNum = Random.Range(0, 101);
+            if (ChanceToCreatePowerUp(ranNum))
+            {
+                CreatePowerUp();
+            }
+
         }
     }
 
@@ -37,5 +43,14 @@ public class BaseBlockScript : MonoBehaviour
     private void CreatePowerUp()
     {
         Instantiate(powerUpPrefab, transform.position, Quaternion.identity);
+    }
+    
+    private bool ChanceToCreatePowerUp(int ranNum)
+    {
+        if (ranNum < 95)
+        {
+            return false;
+        } 
+        return true;
     }
 }
