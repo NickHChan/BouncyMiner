@@ -47,10 +47,11 @@ public class BaseBlockScript : MonoBehaviour
     
     private bool ChanceToCreatePowerUp(int ranNum)
     {
-        if (ranNum < 95)
+        if (ranNum >= 97)
         {
-            return false;
+            return true;
         } 
-        return true;
+        return false;
     }
+
 }

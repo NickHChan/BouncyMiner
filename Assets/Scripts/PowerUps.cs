@@ -8,6 +8,12 @@ public class PowerUps : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Destroy(gameObject);
+            TurnOnStarPower();
         }
+    }
+
+    private void TurnOnStarPower()
+    {
+        FindAnyObjectByType<Player>().ChangePlayerIsVulnerable();
     }
 }

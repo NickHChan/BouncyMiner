@@ -10,7 +10,8 @@ public class Player : MonoBehaviour
     private static float _playerScore;
     [SerializeField] private Transform playerHealth;
     private SpriteRenderer _playerSprite;
-    public static bool PlayerBrokeATool = false;
+    public static bool PlayerBrokeATool;
+    private static bool _playerIsVulnerable = true;
     [SerializeField] private GameObject gameoverScreen;
     [SerializeField] private Sprite swordImage;
     [SerializeField] private float torqueAmount = 3f;
@@ -55,6 +56,13 @@ public class Player : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         _rb.AddTorque(torqueAmount);
+        //TODO: fix it Destroying the walls too xD
+        if (!_playerIsVulnerable)
+        {
+            Destroy(other.gameObject);
+            PlayerGainsScore(500);
+        }
+
         if (other.gameObject.CompareTag("Ore") && _playerMode == PlayerModes.Mining)
         {
             PlayerGainsScore(100);
@@ -151,6 +159,11 @@ public class Player : MonoBehaviour
 
         PlayerBrokeATool = false;
 
+    }
+
+    public void ChangePlayerIsVulnerable()
+    {
+        _playerIsVulnerable = !_playerIsVulnerable;
     }
 
 
