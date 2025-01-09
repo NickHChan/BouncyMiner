@@ -12,8 +12,9 @@ public class PowerUps : MonoBehaviour
         }
     }
 
+    //TODO set a timer for this to expire
     private void TurnOnStarPower()
     {
-        FindAnyObjectByType<Player>().ChangePlayerIsVulnerable();
+        Player.ChangePlayerIsVulnerable(false);
     }
 }

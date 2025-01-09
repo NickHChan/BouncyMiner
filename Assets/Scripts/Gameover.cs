@@ -15,6 +15,8 @@ public class Gameover : MonoBehaviour
         Player.ResetPlayerScore();
         Player.ResetPlayerHealth();
         Tools.ResetToolDurability();
+        //Probably remove this after we set a timer for powerup 
+        Player.ChangePlayerIsVulnerable(true);
         Time.timeScale = 1;
         gameOverPanel.SetActive(false);
     }

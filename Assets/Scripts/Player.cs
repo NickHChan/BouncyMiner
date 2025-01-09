@@ -57,7 +57,10 @@ public class Player : MonoBehaviour
     {
         _rb.AddTorque(torqueAmount);
         //TODO: fix it Destroying the walls too xD
-        if (!_playerIsVulnerable)
+        if (!_playerIsVulnerable &&
+            other.gameObject.CompareTag("Ore") ||
+            other.gameObject.CompareTag("Enemy") ||
+            other.gameObject.CompareTag("Trap"))
         {
             Destroy(other.gameObject);
             PlayerGainsScore(500);
@@ -161,9 +164,9 @@ public class Player : MonoBehaviour
 
     }
 
-    public void ChangePlayerIsVulnerable()
+    public static void ChangePlayerIsVulnerable(bool isVulnerable)
     {
-        _playerIsVulnerable = !_playerIsVulnerable;
+        _playerIsVulnerable = isVulnerable;
     }
 
 
