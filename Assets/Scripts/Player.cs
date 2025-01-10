@@ -56,14 +56,13 @@ public class Player : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         _rb.AddTorque(torqueAmount);
-        //TODO: fix it Destroying the walls too xD
-        if (!_playerIsVulnerable &&
-            other.gameObject.CompareTag("Ore") ||
-            other.gameObject.CompareTag("Enemy") ||
-            other.gameObject.CompareTag("Trap"))
+        if (!_playerIsVulnerable && other.gameObject.CompareTag("Ore") ||
+            !_playerIsVulnerable && other.gameObject.CompareTag("Enemy") ||
+            !_playerIsVulnerable && other.gameObject.CompareTag("Trap"))
         {
             Destroy(other.gameObject);
             PlayerGainsScore(500);
+            return;
         }
 
         if (other.gameObject.CompareTag("Ore") && _playerMode == PlayerModes.Mining)
