@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     private static bool _playerIsVulnerable = true;
     [SerializeField] private GameObject gameoverScreen;
     [SerializeField] private Sprite swordImage;
+    [SerializeField] private Sprite shovelImage;
+    [SerializeField] private Sprite shieldImage;
     [SerializeField] private float torqueAmount = 3f;
     
 
@@ -24,7 +26,6 @@ public class Player : MonoBehaviour
      _rb = GetComponent<Rigidbody2D>();
      _playerMode = PlayerModes.Mining;
      _playerSprite = GetComponentInChildren<SpriteRenderer>();
-     _playerSprite.color = Color.blue;
      _sprite = GetComponentInChildren<SpriteRenderer>();
      Debug.Log("To Changes Modes use 1:Mining 2: Attacking 3: Defending");
     }
@@ -41,6 +42,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             _playerMode = PlayerModes.Mining;
+            _sprite.sprite = shovelImage;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2) && Tools.Sword["Durability"] > 0)
         {
@@ -50,7 +52,7 @@ public class Player : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Alpha3) && Tools.Shield["Durability"] > 0)
         {
             _playerMode = PlayerModes.Defending;
-            _playerSprite.color = Color.green;
+            _sprite.sprite = shieldImage;
         }
     }
     private void OnCollisionEnter2D(Collision2D other)
