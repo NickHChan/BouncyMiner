@@ -22,7 +22,7 @@ public class Spawner : MonoBehaviour
                 
                 
 
-                Instantiate(spawners[index], new Vector3(xCoord, transform.position.y - yCoord, transform.position.z), new Quaternion(0f,0f,Random.rotation.z,0f), spawnersParent);
+                Instantiate(spawners[index], new Vector3(xCoord, transform.position.y - yCoord, transform.position.z), Quaternion.identity, spawnersParent);
             }
         }
         

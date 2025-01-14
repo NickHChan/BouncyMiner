@@ -7,7 +7,6 @@ public class BaseBlockScript : MonoBehaviour
 {
     [SerializeField] private int _blockHealth = 1;
     [SerializeField] private GameObject powerUpPrefab;
-    [SerializeField] Transform spawnersParent;
 
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -43,7 +42,7 @@ public class BaseBlockScript : MonoBehaviour
 
     private void CreatePowerUp()
     {
-        Instantiate(powerUpPrefab, transform.position, Quaternion.identity, spawnersParent);
+        Instantiate(powerUpPrefab, transform.position, Quaternion.identity);
     }
     
     private bool ChanceToCreatePowerUp(int ranNum)
