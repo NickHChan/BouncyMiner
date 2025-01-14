@@ -149,3 +149,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _blockHealth: 1
   powerUpPrefab: {fileID: 8676960616365130686, guid: 70564e54f7349a74cbf8d5c5ec1cf0ff, type: 3}
+  spawnersParent: {fileID: 7750349479347804269, guid: 55c37cfcec545ae48b78d5db8f035419, type: 3}

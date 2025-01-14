@@ -180,6 +180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawners:
   - {fileID: 427383278181038535, guid: 2e3f5a157c979ef459a9c7d938c2eecb, type: 3}
+  - {fileID: 427383278181038535, guid: 784ca9ea409c7fa48af266e15182a838, type: 3}
   - {fileID: 908739711918808789, guid: 5cb0cf27fb01407428092f4351506188, type: 3}
   - {fileID: 5401258698325866780, guid: dfb7439f585501a4886db639658ce620, type: 3}
   spawnersParent: {fileID: 7750349479347804269}

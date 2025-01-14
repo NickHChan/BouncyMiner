@@ -742,7 +742,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 895494199}
   gameoverScreen: {fileID: 49248219}
-  swordImage: {fileID: 1606525884, guid: c868cfd3d2b708a4e89fd4255e985462, type: 3}
+  swordImage: {fileID: 719504032, guid: 9d2673a5b020e144e8aeb2d58ec3e550, type: 3}
+  shovelImage: {fileID: -1866357491, guid: 9d2673a5b020e144e8aeb2d58ec3e550, type: 3}
+  shieldImage: {fileID: 480313844, guid: 9d2673a5b020e144e8aeb2d58ec3e550, type: 3}
   torqueAmount: 3
 --- !u!70 &189155050
 CapsuleCollider2D:
@@ -820,7 +822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f36bd81ce714d8c4d89a7cf2c592d555, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickaxeText: {fileID: 390477459}
+  shovelText: {fileID: 390477459}
   swordText: {fileID: 1677768377}
   shieldText: {fileID: 954435442}
 --- !u!114 &189155053
@@ -1414,7 +1416,7 @@ GameObject:
   m_Component:
   - component: {fileID: 666437727}
   m_Layer: 0
-  m_Name: Pickaxe
+  m_Name: Shovel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3714,7 +3716,19 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 144615770}
     - target: {fileID: 3567408509149651635, guid: 55c37cfcec545ae48b78d5db8f035419, type: 3}
+      propertyPath: spawners.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3567408509149651635, guid: 55c37cfcec545ae48b78d5db8f035419, type: 3}
+      propertyPath: 'spawners.Array.data[1]'
+      value: 
+      objectReference: {fileID: 427383278181038535, guid: 784ca9ea409c7fa48af266e15182a838, type: 3}
+    - target: {fileID: 3567408509149651635, guid: 55c37cfcec545ae48b78d5db8f035419, type: 3}
       propertyPath: 'spawners.Array.data[2]'
+      value: 
+      objectReference: {fileID: 908739711918808789, guid: 5cb0cf27fb01407428092f4351506188, type: 3}
+    - target: {fileID: 3567408509149651635, guid: 55c37cfcec545ae48b78d5db8f035419, type: 3}
+      propertyPath: 'spawners.Array.data[3]'
       value: 
       objectReference: {fileID: 5401258698325866780, guid: dfb7439f585501a4886db639658ce620, type: 3}
     - target: {fileID: 7750349479347804269, guid: 55c37cfcec545ae48b78d5db8f035419, type: 3}
