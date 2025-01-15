@@ -41,6 +41,8 @@ public class GameManager : MonoBehaviour
         Player.ResetPlayerScore();
         Player.ResetPlayerHealth();
         Tools.ResetToolDurability();
+        //Probably remove this after we set a timer for the powerup
+        Player.ChangePlayerIsVulnerable(true);
     }
 
     private void SpawnFirstRow()

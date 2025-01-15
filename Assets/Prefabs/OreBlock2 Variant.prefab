@@ -58,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2869204699978444128, guid: 2cff63ae5654148499211204e28f1d86, type: 3}
       propertyPath: m_Name
-      value: OreBlock Variant
+      value: OreBlock2 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 2869204699978444128, guid: 2cff63ae5654148499211204e28f1d86, type: 3}
       propertyPath: m_TagString
@@ -75,7 +75,7 @@ PrefabInstance:
     - target: {fileID: 4316187807807890496, guid: 2cff63ae5654148499211204e28f1d86, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -8610559094780854174, guid: e1a68cb345d4f9c438c06594c8da27c8, type: 3}
+      objectReference: {fileID: 4838855032841160134, guid: ad2a8379db3330d4ab676f35fcb5cd17, type: 3}
     - target: {fileID: 4316187807807890496, guid: 2cff63ae5654148499211204e28f1d86, type: 3}
       propertyPath: m_Color.a
       value: 1

@@ -1,10 +1,12 @@
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class BaseBlockScript : MonoBehaviour
 {
     [SerializeField] private int _blockHealth = 1;
+    [SerializeField] private GameObject powerUpPrefab;
 
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -24,6 +26,12 @@ public class BaseBlockScript : MonoBehaviour
         if (_blockHealth <= 0)
         {
             Destroy(gameObject);
+            int ranNum = Random.Range(0, 101);
+            if (ChanceToCreatePowerUp(ranNum))
+            {
+                CreatePowerUp();
+            }
+
         }
     }
 
@@ -31,4 +39,19 @@ public class BaseBlockScript : MonoBehaviour
     {
         _blockHealth += health;
     }
+
+    private void CreatePowerUp()
+    {
+        Instantiate(powerUpPrefab, transform.position, Quaternion.identity);
+    }
+    
+    private bool ChanceToCreatePowerUp(int ranNum)
+    {
+        if (ranNum >= 97)
+        {
+            return true;
+        } 
+        return false;
+    }
+
 }
