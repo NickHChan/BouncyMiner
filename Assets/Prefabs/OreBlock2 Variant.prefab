@@ -66,16 +66,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4316187807807890496, guid: 2cff63ae5654148499211204e28f1d86, type: 3}
       propertyPath: m_Size.x
-      value: 0.64
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4316187807807890496, guid: 2cff63ae5654148499211204e28f1d86, type: 3}
       propertyPath: m_Size.y
-      value: 0.64
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4316187807807890496, guid: 2cff63ae5654148499211204e28f1d86, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 4838855032841160134, guid: ad2a8379db3330d4ab676f35fcb5cd17, type: 3}
+      objectReference: {fileID: 21300000, guid: ad2a8379db3330d4ab676f35fcb5cd17, type: 3}
     - target: {fileID: 4316187807807890496, guid: 2cff63ae5654148499211204e28f1d86, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -98,7 +98,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4316187807807890496, guid: 2cff63ae5654148499211204e28f1d86, type: 3}
       propertyPath: m_WasSpriteAssigned
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4975272495950951136, guid: 2cff63ae5654148499211204e28f1d86, type: 3}
       propertyPath: m_SpriteTilingProperty.drawMode
@@ -106,11 +106,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4975272495950951136, guid: 2cff63ae5654148499211204e28f1d86, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 0.64
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4975272495950951136, guid: 2cff63ae5654148499211204e28f1d86, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.y
-      value: 0.64
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4975272495950951136, guid: 2cff63ae5654148499211204e28f1d86, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
