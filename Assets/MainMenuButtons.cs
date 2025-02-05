@@ -12,4 +12,9 @@ public class MainMenuButtons : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void PlayZenMode()
+    {
+        Debug.Log("Sorry Zen Game mode is currently in development mode");
+    }
 }
