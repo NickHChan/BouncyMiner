@@ -19,7 +19,6 @@ public class MenuBunny : MonoBehaviour
     {
         _rb.AddTorque(torqueAmount);
         int randomNum = UnityEngine.Random.Range(0, 4);
-        Debug.Log(randomNum);
         addRandomForce(randomNum, _rb);
     }
 
