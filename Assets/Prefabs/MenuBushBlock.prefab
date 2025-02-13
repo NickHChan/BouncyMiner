@@ -18,11 +18,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1140754923502760915, guid: 2cff63ae5654148499211204e28f1d86, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 4.6036015
       objectReference: {fileID: 0}
     - target: {fileID: 1140754923502760915, guid: 2cff63ae5654148499211204e28f1d86, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.1762482
       objectReference: {fileID: 0}
     - target: {fileID: 1140754923502760915, guid: 2cff63ae5654148499211204e28f1d86, type: 3}
       propertyPath: m_LocalPosition.z
@@ -58,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2869204699978444128, guid: 2cff63ae5654148499211204e28f1d86, type: 3}
       propertyPath: m_Name
-      value: MenuOreBlock
+      value: MenuBushBlock
       objectReference: {fileID: 0}
     - target: {fileID: 2869204699978444128, guid: 2cff63ae5654148499211204e28f1d86, type: 3}
       propertyPath: m_TagString
@@ -75,7 +75,7 @@ PrefabInstance:
     - target: {fileID: 4316187807807890496, guid: 2cff63ae5654148499211204e28f1d86, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -8610559094780854174, guid: e1a68cb345d4f9c438c06594c8da27c8, type: 3}
+      objectReference: {fileID: -8600357621135760430, guid: d9db7b14bbd42174e88ec4f37c940bfb, type: 3}
     - target: {fileID: 4316187807807890496, guid: 2cff63ae5654148499211204e28f1d86, type: 3}
       propertyPath: m_Color.a
       value: 1
