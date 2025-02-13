@@ -146,5 +146,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 311cd0f3e35a7e2498f3a63bf6dd564a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToRespawn: 3
+  timeToRespawn: 4000
   menuBlock: {fileID: 427383278181038535}

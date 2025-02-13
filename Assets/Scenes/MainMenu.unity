@@ -875,6 +875,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5984742227283638382, guid: 48180fbbab90efc478a9911ac58af4bb, type: 3}
+      propertyPath: timeToRespawn
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7436744064484632135, guid: 48180fbbab90efc478a9911ac58af4bb, type: 3}
       propertyPath: m_Size.x
       value: 0.5
