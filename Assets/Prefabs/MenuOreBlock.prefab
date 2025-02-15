@@ -135,14 +135,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2869204699978444128, guid: 2cff63ae5654148499211204e28f1d86, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5984742227283638382}
+      addedObject: {fileID: 1969716153868229993}
   m_SourcePrefab: {fileID: 100100000, guid: 2cff63ae5654148499211204e28f1d86, type: 3}
 --- !u!1 &427383278181038535 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2869204699978444128, guid: 2cff63ae5654148499211204e28f1d86, type: 3}
   m_PrefabInstance: {fileID: 2467735834333582503}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5984742227283638382
+--- !u!114 &1969716153868229993
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -154,5 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 311cd0f3e35a7e2498f3a63bf6dd564a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToRespawn: 50000
-  menuBlock: {fileID: 427383278181038535}
+  timeToRespawn: 40000
+  blockSprite1: {fileID: -8610559094780854174, guid: e1a68cb345d4f9c438c06594c8da27c8, type: 3}
+  blockSprite2: {fileID: 21300000, guid: ad2a8379db3330d4ab676f35fcb5cd17, type: 3}
+  blockSprite3: {fileID: -6634785031346573247, guid: 4ab859d9902d75d4bbd3951c42cbfd0a, type: 3}

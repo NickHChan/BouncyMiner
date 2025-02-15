@@ -1,7 +1,9 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
+using Random = Unity.Mathematics.Random;
 
 public class MenuBlock : MonoBehaviour
 {
@@ -9,12 +11,18 @@ public class MenuBlock : MonoBehaviour
     private BoxCollider2D boxCollider;
     private SpriteRenderer spriteRenderer;
     [SerializeField] private int timeToRespawn = 4000;
-    [SerializeField] private GameObject menuBlock;
+    [SerializeField] private Sprite blockSprite1;
+    [SerializeField] private Sprite blockSprite2;
+    [SerializeField] private Sprite blockSprite3;
+    private List<Sprite> listOfSpriteRenderers = new List<Sprite>();
 
     private void Start()
     {
         boxCollider = GetComponent<BoxCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        listOfSpriteRenderers.Add(blockSprite1);
+        listOfSpriteRenderers.Add(blockSprite2);
+        listOfSpriteRenderers.Add(blockSprite3);
     }
     
     private void OnCollisionEnter2D(Collision2D other)
@@ -29,6 +37,8 @@ public class MenuBlock : MonoBehaviour
     {
         boxCollider.enabled = false;
         spriteRenderer.enabled = false;
+        int ranNum = UnityEngine.Random.Range(0, listOfSpriteRenderers.Count);
+        spriteRenderer.sprite = listOfSpriteRenderers[ranNum];
         await Task.Delay(timeToRespawn);
         boxCollider.enabled = true;
         spriteRenderer.enabled = true;
