@@ -3,6 +3,16 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuButtons : MonoBehaviour
 {
+    [SerializeField] private GameObject ZenModePopUp;
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            ZenModePopUp.SetActive(false);
+        }
+    }
+
+    
     public void PlayGame()
     {
         SceneManager.LoadScene(0);
@@ -15,6 +25,6 @@ public class MainMenuButtons : MonoBehaviour
 
     public void PlayZenMode()
     {
-        Debug.Log("Sorry Zen Game mode is currently in development mode");
+        ZenModePopUp.SetActive(true);
     }
 }

@@ -40,6 +40,7 @@ public class MenuBlock : MonoBehaviour
         int ranNum = UnityEngine.Random.Range(0, listOfSpriteRenderers.Count);
         spriteRenderer.sprite = listOfSpriteRenderers[ranNum];
         await Task.Delay(timeToRespawn);
+        if (boxCollider == null || spriteRenderer == null) return;
         boxCollider.enabled = true;
         spriteRenderer.enabled = true;
     }
