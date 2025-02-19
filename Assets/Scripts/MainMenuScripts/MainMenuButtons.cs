@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class MainMenuButtons : MonoBehaviour
 {
     [SerializeField] private GameObject ZenModePopUp;
+    [SerializeField] private GameObject SettingsPopUp;
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Mouse0))
@@ -21,6 +22,11 @@ public class MainMenuButtons : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
+    }
+
+    public void SettingsPopUpButton()
+    {
+        SettingsPopUp.SetActive(true);
     }
 
     public void PlayZenMode()
