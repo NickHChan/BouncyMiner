@@ -7,12 +7,12 @@ public class SettingsScripts : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    private void CloseButton()
+    public void CancelButton()
     {
         gameObject.SetActive(false);
     }
 
-    private void SaveButton()
+    public void SaveButton()
     {
         gameObject.SetActive(false);
     }
