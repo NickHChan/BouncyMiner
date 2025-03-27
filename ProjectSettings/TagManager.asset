@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - Trap
   - Bunny
+  - MusicVolume
+  - SFXVolume
   layers:
   - Default
   - TransparentFX

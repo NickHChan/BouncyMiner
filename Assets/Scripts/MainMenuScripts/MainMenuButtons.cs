@@ -5,7 +5,7 @@ public class MainMenuButtons : MonoBehaviour
 {
     [SerializeField] private GameObject ZenModePopUp;
     [SerializeField] private GameObject SettingsPopUp;
-    private bool settingPopUp = false;
+    public bool settingPopUp = false;
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Mouse0))

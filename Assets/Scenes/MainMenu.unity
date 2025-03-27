@@ -4793,8 +4793,8 @@ GameObject:
   - component: {fileID: 297318605}
   - component: {fileID: 297318606}
   m_Layer: 5
-  m_Name: Slider
-  m_TagString: Untagged
+  m_Name: SFXSlider
+  m_TagString: SFXVolume
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5176,6 +5176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ZenModePopUp: {fileID: 2062800637}
   SettingsPopUp: {fileID: 182809956}
+  settingPopUp: 0
 --- !u!4 &310420019 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3309000197066745716, guid: 48180fbbab90efc478a9911ac58af4bb, type: 3}
@@ -17446,6 +17447,42 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 2015396755}
+        m_TargetAssemblyTypeName: MusicSettingsScripts, Assembly-CSharp
+        m_MethodName: SaveVolumeProfile
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 50
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 297318606}
+        m_TargetAssemblyTypeName: MusicSettingsScripts, Assembly-CSharp
+        m_MethodName: SaveVolumeProfile
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 50
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 308166938}
+        m_TargetAssemblyTypeName: MainMenuButtons, Assembly-CSharp
+        m_MethodName: SettingsPopUpButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 182809957}
         m_TargetAssemblyTypeName: SettingsScripts, Assembly-CSharp
         m_MethodName: SaveButton
@@ -18429,7 +18466,7 @@ GameObject:
   - component: {fileID: 1008874319}
   m_Layer: 5
   m_Name: Sfx
-  m_TagString: Untagged
+  m_TagString: SFXVolume
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22425,7 +22462,7 @@ GameObject:
   - component: {fileID: 1169693889}
   m_Layer: 5
   m_Name: Music
-  m_TagString: Untagged
+  m_TagString: MusicVolume
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29315,9 +29352,45 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 2015396755}
+        m_TargetAssemblyTypeName: MusicSettingsScripts, Assembly-CSharp
+        m_MethodName: CancelVolumeProfile
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 297318606}
+        m_TargetAssemblyTypeName: MusicSettingsScripts, Assembly-CSharp
+        m_MethodName: CancelVolumeProfile
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 182809957}
         m_TargetAssemblyTypeName: SettingsScripts, Assembly-CSharp
         m_MethodName: CancelButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 308166938}
+        m_TargetAssemblyTypeName: MainMenuButtons, Assembly-CSharp
+        m_MethodName: SettingsPopUpButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -38360,8 +38433,8 @@ GameObject:
   - component: {fileID: 2015396754}
   - component: {fileID: 2015396755}
   m_Layer: 5
-  m_Name: Slider
-  m_TagString: Untagged
+  m_Name: MusicSlider
+  m_TagString: MusicVolume
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

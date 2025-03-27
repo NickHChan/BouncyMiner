@@ -9,7 +9,7 @@ public class SettingsScripts : MonoBehaviour
 
     public void CancelButton()
     {
-        gameObject.SetActive(false);
+;       gameObject.SetActive(false);
     }
 
     public void SaveButton()

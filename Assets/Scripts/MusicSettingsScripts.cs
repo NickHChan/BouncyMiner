@@ -14,6 +14,8 @@ public class MusicSettingsScripts : MonoBehaviour
     private Slider currentSlider;
     private Image currentSliderImage;
     private RectTransform currentSliderRect;
+    private float musicVolumeValue;
+    private float sfxVolumeValue;
 
 
     private void Awake()
@@ -23,7 +25,18 @@ public class MusicSettingsScripts : MonoBehaviour
         currentSliderRect = sliderHandle.GetComponent<RectTransform>();
     }
 
+    private void Start()
+    {
+        LoadVolumeProfile();
+        
+    }
+
     private void Update()
+    {
+        ChangeSliderSpriteOnVolume();
+    }
+
+    private void ChangeSliderSpriteOnVolume()
     {
         if (currentSlider.value <= 0.33f)
         {
@@ -39,6 +52,43 @@ public class MusicSettingsScripts : MonoBehaviour
         {
             currentSliderRect.localScale = new Vector3(2,2f,1);
             currentSliderImage.sprite = highVolumeSprite;
+        }
+    }
+
+    public void SaveVolumeProfile()
+    {
+        if (gameObject.CompareTag("MusicVolume"))
+        {
+            PlayerPrefs.SetFloat("MusicVolume", currentSlider.value);
+        }
+
+        if (gameObject.CompareTag("SFXVolume"))
+        {
+            PlayerPrefs.SetFloat("SFXVolume", currentSlider.value);
+        }
+    }      
+    public void CancelVolumeProfile()
+    {
+        if (gameObject.CompareTag("MusicVolume"))
+        {
+            currentSlider.value = PlayerPrefs.GetFloat("MusicVolume");
+        }
+
+        if (gameObject.CompareTag("SFXVolume"))
+        {
+            currentSlider.value = PlayerPrefs.GetFloat("SFXVolume");
+        }
+    }   
+    private void LoadVolumeProfile()
+    {
+        if (gameObject.CompareTag("MusicVolume") && PlayerPrefs.HasKey("MusicVolume"))
+        {
+            currentSlider.value = PlayerPrefs.GetFloat("MusicVolume");
+        }
+
+        if (gameObject.CompareTag("SFXVolume") && PlayerPrefs.HasKey("SFXVolume"))
+        {
+            currentSlider.value = PlayerPrefs.GetFloat("SFXVolume");
         }
     }
 }
