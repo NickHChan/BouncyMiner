@@ -9221,6 +9221,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 498864072}
   m_CullTransparentMesh: 1
+--- !u!114 &502943456 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 928794782165817519, guid: 2315a128dcde8c54185d0c994b73929a, type: 3}
+  m_PrefabInstance: {fileID: 6318291199181460527}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f9bb46a0d042c64a903f1974cf1e155, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &505776619 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3309000197066745716, guid: 48180fbbab90efc478a9911ac58af4bb, type: 3}
@@ -39646,6 +39657,34 @@ PrefabInstance:
     - target: {fileID: 2161451232711730796, guid: 2315a128dcde8c54185d0c994b73929a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638926470607647389, guid: 2315a128dcde8c54185d0c994b73929a, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638926470607647389, guid: 2315a128dcde8c54185d0c994b73929a, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638926470607647389, guid: 2315a128dcde8c54185d0c994b73929a, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 502943456}
+    - target: {fileID: 2638926470607647389, guid: 2315a128dcde8c54185d0c994b73929a, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638926470607647389, guid: 2315a128dcde8c54185d0c994b73929a, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeSliderSpriteOnVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638926470607647389, guid: 2315a128dcde8c54185d0c994b73929a, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MusicSettingsScripts, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638926470607647389, guid: 2315a128dcde8c54185d0c994b73929a, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2909477400333669958, guid: 2315a128dcde8c54185d0c994b73929a, type: 3}
       propertyPath: m_AnchorMax.x
