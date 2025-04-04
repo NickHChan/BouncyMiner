@@ -31,27 +31,25 @@ public class MusicSettingsScripts : MonoBehaviour
         
     }
 
-    private void Update()
-    {
-        ChangeSliderSpriteOnVolume();
-    }
-
-    private void ChangeSliderSpriteOnVolume()
+    public void ChangeSliderSpriteOnVolume()
     {
         if (currentSlider.value <= 0.33f)
         {
-            currentSliderRect.localScale = new Vector3(2,2.5f,1);
+            // currentSliderRect.localScale = new Vector3(2,2.5f,1);
             currentSliderImage.sprite = lowVolumeSprite;
+            currentSliderImage.SetNativeSize();
         }
         else if (currentSlider.value > 0.33f && currentSlider.value <= 0.66f)
         {
-            currentSliderRect.localScale = new Vector3(2,2f,1);
+            // currentSliderRect.localScale = new Vector3(2,2f,1);
             currentSliderImage.sprite = mediumVolumeSprite;
+            currentSliderImage.SetNativeSize();
         }
         else
         {
-            currentSliderRect.localScale = new Vector3(2,2f,1);
+            // currentSliderRect.localScale = new Vector3(2,2f,1);
             currentSliderImage.sprite = highVolumeSprite;
+            currentSliderImage.SetNativeSize();
         }
     }
 
