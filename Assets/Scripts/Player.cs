@@ -9,7 +9,6 @@ public class Player : MonoBehaviour
     private static int _playerHealth = 3;
     private static float _playerScore;
     [SerializeField] private Transform playerHealth;
-    private SpriteRenderer _playerSprite;
     public static bool PlayerBrokeATool;
     private static bool _playerIsVulnerable = true;
     [SerializeField] private GameObject gameoverScreen;
@@ -20,13 +19,12 @@ public class Player : MonoBehaviour
     
 
     private Rigidbody2D _rb;
-    private SpriteRenderer _sprite;
+    public SpriteRenderer _sprite;
+    public Transform bunnyTransform;
     void Start()
     {
      _rb = GetComponent<Rigidbody2D>();
      _playerMode = PlayerModes.Mining;
-     _playerSprite = GetComponentInChildren<SpriteRenderer>();
-     _sprite = GetComponentInChildren<SpriteRenderer>();
      Debug.Log("To Changes Modes use 1:Mining 2: Attacking 3: Defending");
     }
     
@@ -43,16 +41,22 @@ public class Player : MonoBehaviour
         {
             _playerMode = PlayerModes.Mining;
             _sprite.sprite = shovelImage;
+            bunnyTransform.localPosition = new Vector3(-0.07f, -0.03f, 0);
+            bunnyTransform.localRotation = Quaternion.Euler(0f,0f, -90f);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2) && Tools.Sword["Durability"] > 0)
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             _playerMode = PlayerModes.Attacking;
             _sprite.sprite = swordImage;
+            bunnyTransform.localPosition = new Vector3(-0.07f, -0.8f, 0);
+            bunnyTransform.localRotation = Quaternion.Euler(0f,0f, -112f);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3) && Tools.Shield["Durability"] > 0)
         {
             _playerMode = PlayerModes.Defending;
             _sprite.sprite = shieldImage;
+            bunnyTransform.localPosition = new Vector3(-0.07f, 0.4f, 0);
+            bunnyTransform.localRotation = Quaternion.Euler(0f,0f,0f);
         }
     }
     private void OnCollisionEnter2D(Collision2D other)
@@ -158,7 +162,7 @@ public class Player : MonoBehaviour
         if (PlayerBrokeATool)
         {
             _playerMode = PlayerModes.Mining;
-            _playerSprite.color = Color.blue;
+            _sprite.color = Color.blue;
         }
 
         PlayerBrokeATool = false;
