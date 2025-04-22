@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -12,6 +13,16 @@ public class MainMenuTrigger : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         buttonText.color = Color.white;
+    }
+
+    private void OnMouseEnter()
+    {
+        buttonText.color = Color.white;
+    }
+
+    private void OnMouseExit()
+    {
+        buttonText.color = _defaultTextColor;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
